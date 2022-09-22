@@ -176,11 +176,11 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
             button.SetActive(true);
 
             //set the room nbame and player count texts
-            button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text = roomList[x].name;
+            button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text = roomList[x].Name;
             button.transform.Find("PlayerCountText").GetComponent<TextMeshProUGUI>().text = roomList[x].PlayerCount +  " / " + roomList[x].MaxPlayers;
+
             //set the button Onclick event
             Button buttonComp = button.GetComponent<Button>();
-
             string roomName = roomList[x].Name;
 
             buttonComp.onClick.RemoveAllListeners();
@@ -195,7 +195,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnRefreshButton()
     {
-        UpdateLobbyUI();
+        UpdateLobbyBrowserUI();
     }
 
     public override void OnRoomListUpdate (List<RoomInfo> allRooms)
