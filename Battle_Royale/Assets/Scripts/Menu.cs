@@ -45,6 +45,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         if (PhotonNetwork.InRoom)
         {
             //go to the lobby
+            SetScreen(lobbyScreen);
+            UpdateLobbyUI();
 
             //make the room visible again
             PhotonNetwork.CurrentRoom.IsVisible = true;
