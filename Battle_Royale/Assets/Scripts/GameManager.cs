@@ -52,4 +52,14 @@ public class GameManager : MonoBehaviourPun
 
     }
 
+    public PlayerController GetPlayer(int playerID)
+    {
+        return players.First(x => x.id == playerID);
+    }
+
+    public PlayerController GetPlayer(GameObject playerObject)
+    {
+        return players.First(x => x.gameObject == playerObject);
+    }
+
 }
