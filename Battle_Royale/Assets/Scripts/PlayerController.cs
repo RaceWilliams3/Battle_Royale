@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class PlayerController : MonoBehaviourPun
 {
-    [Header("InfO")]
+    [Header("Info")]
     public int id;
     private int curAttackerId;
 
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviourPun
     public MeshRenderer mr;
     public PlayerWeapon weapon;
 
+
     [PunRPC]
     public void Initialize(Player player)
     {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviourPun
 
         GameManager.instance.players[id - 1] = this;
 
-        if(!photonView.IsMine)
+        if (!photonView.IsMine)
         {
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
             rig.isKinematic = true;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviourPun
         else
         {
             GameUI.instance.Initialize(this);
+            this.GetComponent<MatSync>().matID = 3;
+            Debug.Log("Sent id to mat sync");
         }
 
     }
